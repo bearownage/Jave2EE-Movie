@@ -36,6 +36,10 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getServletPath();
 		switch(action) {
+		case "/home":
+			showHomePage(request, response);
+			break;
+			
 		case "/new":
 			showNewForm(request, response);
 			break;
@@ -82,6 +86,12 @@ public class UserServlet extends HttpServlet {
 			}
 			break;
 		}
+	}
+
+	private void showHomePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 	/**
