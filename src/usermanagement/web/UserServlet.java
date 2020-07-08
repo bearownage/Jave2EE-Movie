@@ -35,7 +35,7 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getServletPath();
-		switch("action") {
+		switch(action) {
 		case "/new":
 			showNewForm(request, response);
 			break;
