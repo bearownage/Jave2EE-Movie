@@ -1,5 +1,5 @@
 package usermanagement.dao;
 
-public class ActorsDat {
+public class ActorsDao {
 
 }

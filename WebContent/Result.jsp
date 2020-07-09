@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
  pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
         <html>
@@ -17,21 +16,23 @@
                     </div>
 
                     <ul class="navbar-nav">
-                        <li><a href="<%=request.getContextPath()%>/home" class="nav-link">Home</a></li>
+                        <li><a href="<%=request.getContextPath()%>/result" class="nav-link">Home</a></li>
                     </ul>
                 </nav>
             </header>
             <br>
-            <div class="container">
-				
-			</div>
-			<div class="col-md-4 offset-md-4 mt-5 border border-success pt-3">
-			<div class="input-group mb-3">
-			  <form class="form-inline" method="get" action="search.jsp" style="width: 300px;" name = "q">
-				<input type="text" name="roll_no" class="form-control" placeholder="Search for a movie...">
-				<button type="submit" name="save" class="btn btn-primary">Search</button>
-				</form>
-			  </div>
-			  </div>
-          </body>
-          </html>
+            <table class = "table table-bordered table-striped table-hover">                        
+            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Actors</th>
+                                <th>Release Date</th>
+                                <th>Director</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+              </table>
+                        </html>
+            </body>
+
+                        
