@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import usermanagement.dao.MovieDao;
+import usermanagement.model.Movie;
+import usermanagement.model.User;
 
 public class MovieServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,8 +32,10 @@ public class MovieServlet {
 		}
     }
     
-    protected void showResponsePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
+    protected void showResultPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String name = request.getParameter("q");
+		Movie movie = movieDao.selectMovie(name);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Result.jsp");
 		dispatcher.forward(request, response);	
 	}
     

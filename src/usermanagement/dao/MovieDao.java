@@ -2,16 +2,21 @@ package usermanagement.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import usermanagement.model.Movie;
+import usermanagement.model.User;
 
 public class MovieDao {
 	private static String jdbcURL = "jdbc:mysql://localhost:3306/demo";
     private static String jdbcUsername = "root";
     private static String jdbcPassword = "";
     
-    private static final String INSERT_USERS_SQL = "INSERT INTO MOVIES" + " (name, , rating) VALUES " + " (?, ?, ?)";
+    private static final String INSERT_MOVIES_SQL = "INSERT INTO MOVIES" + " (name, , rating) VALUES " + " (?, ?, ?)";
     
-    private static final String SELECT_MOVIE_BY_NAME = "select name,rating from movies where id=?;";
+    private static final String SELECT_MOVIE_BY_NAME = "select name,rating,poster,director from movies where name=?;";
     
     public static Connection getConnection() {
         Connection connection = null;
@@ -26,5 +31,35 @@ public class MovieDao {
             e.printStackTrace();
         }
         return connection;
+    }
+    
+    // select movie by name
+    public Movie selectMovie(String name) {
+    	Movie movie = null;
+    	//Establish connection
+    	try (Connection connection = getConnection();
+    			//Create a statement using connection object
+    			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_MOVIE_BY_NAME)) {
+    		preparedStatement.setString(1, name);
+    		System.out.println(preparedStatement);
+    		//Execute or update query
+    		ResultSet rs = preparedStatement.executeQuery();
+    		
+    		
+    		// Process the ResultSet Object
+    		while(rs.next()) {
+    			//String name = rs.getString("name");
+    			//String email = rs.getString("email");
+    			double rating = rs.getDouble("rating");
+    			String poster = rs.getString("poster");
+    			String director = rs.getString("director");
+    			movie = new Movie(name, rating, poster, director);
+    			}
+    		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	return movie;
     }
 }

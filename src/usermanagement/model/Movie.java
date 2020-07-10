@@ -6,13 +6,24 @@ public class Movie {
 	private String actors[];
 	private double rating;
 	private String poster;
+	private String director;
 	
-	public Movie(String name, String[] actors, double rating, String poster) {
+	public Movie(String name, String[] actors, double rating, String poster, String director) {
 		super();
 		this.name = name;
 		this.actors = actors;
 		this.rating = rating;
 		this.poster = poster;
+		this.director = director;
+	}
+	
+	public Movie(String name, double rating, String poster, String director) {
+		super();
+		this.name = name;
+		this.actors = actors;
+		this.rating = rating;
+		this.poster = poster;
+		this.director = director;
 	}
 	
 	public String getName() {
@@ -38,6 +49,14 @@ public class Movie {
 	}
 	public void setPoster(String poster) {
 		this.poster = poster;
+	}
+	
+	public String getDirector() {
+		return director;
+	}
+
+	public void setDirector(String director) {
+		this.director = director;
 	}
 	
 }
