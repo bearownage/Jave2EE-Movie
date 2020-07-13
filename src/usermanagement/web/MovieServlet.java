@@ -36,6 +36,7 @@ public class MovieServlet {
     	String name = request.getParameter("q");
 		Movie movie = movieDao.selectMovie(name);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Result.jsp");
+		request.setAttribute("movie", movie	);
 		dispatcher.forward(request, response);	
 	}
     
