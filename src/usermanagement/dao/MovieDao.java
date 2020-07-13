@@ -18,6 +18,11 @@ public class MovieDao {
     
     private static final String SELECT_MOVIE_BY_NAME = "select name,rating,poster,director from movies where name=?;";
     
+    /*
+     * TODO
+     * Make the GET Request to TMDB Api instead of loading from my sql database. 
+     */
+    
     public static Connection getConnection() {
         Connection connection = null;
         try {
