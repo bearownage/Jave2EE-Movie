@@ -24,15 +24,14 @@
             <table class = "table table-bordered table-striped table-hover">                        
             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Actors</th>
-                                <th>Release Date</th>
-                                <th>Director</th>
-                                <th>Rating</th>
+                                <td>${movie.name}</td>
+                                <td>${movie.director}></td>
+                                <td>${movie.rating}</td>
+                                <td>${movie.poster}</td>
+
                             </tr>
-                        </thead>
+             </thead>
               </table>
-                        </html>
             </body>
 
                         

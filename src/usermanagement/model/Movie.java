@@ -20,7 +20,6 @@ public class Movie {
 	public Movie(String name, double rating, String poster, String director) {
 		super();
 		this.name = name;
-		this.actors = actors;
 		this.rating = rating;
 		this.poster = poster;
 		this.director = director;

@@ -38,8 +38,7 @@ public class UserServlet extends HttpServlet {
 		switch(action) {
 		case "/home":
 			showHomePage(request, response);
-			break;
-			
+			break;	
 		case "/new":
 			showNewForm(request, response);
 			break;
@@ -90,8 +89,7 @@ public class UserServlet extends HttpServlet {
 
 	private void showHomePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Home.jsp");
-		dispatcher.forward(request, response);
-		
+		dispatcher.forward(request, response);	
 	}
 
 	/**
