@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import usermanagement.model.Movie;
 import usermanagement.model.User;
@@ -66,5 +68,35 @@ public class MovieDao {
 		}
     	
     	return movie;
+    }
+    
+    
+    //Get Similar movies
+    public List<Movie> selectAllMovies() {
+    	List<movies> movies = new ArrayList<>();
+    	//Establish connection
+    	try (Connection connection = getConnection();
+    			//Create a statement using connection object
+    			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_MOVIES)) {
+    		System.out.println(preparedStatement);
+    		//Execute or update query
+    		ResultSet rs = preparedStatement.executeQuery();
+    		
+    		
+    		// Process the ResultSet Object
+    		while(rs.next()) {
+    			int id = rs.getInt("id");
+    			String name = rs.getString("name");
+    			String director = rs.getString("director");
+    			Double rating = rs.getDouble("rating");
+    			String poster = rs.getString("poster");
+    			movies.add(new Movie(name, rating, poster, director));
+    			}
+    		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	return movies;
     }
 }
