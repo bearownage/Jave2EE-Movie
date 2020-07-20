@@ -28,7 +28,6 @@
                                 <td>${movie.director}></td>
                                 <td>${movie.rating}</td>
                                 <td>${movie.poster}</td>
-
                             </tr>
              </thead>
               </table>
