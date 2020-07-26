@@ -9,14 +9,14 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIgnore;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
-@DynamoDBTable(tableName="ProductCatalog")
+@DynamoDBTable(tableName="Films")
 public class Film {
 
     private Integer id;
     private String title;
-    private String ISBN;
-    private Set<String> bookAuthors;
-    private String someProp;
+    private String Director;
+    private Set<String> Actors;
+    private String releaseDate;
 
     @DynamoDBHashKey(attributeName="Id")
     public Integer getId() { return id; }
@@ -26,15 +26,15 @@ public class Film {
     public String getTitle() {return title; }
     public void setTitle(String title) { this.title = title; }
 
-    @DynamoDBAttribute(attributeName="ISBN")
-    public String getISBN() { return ISBN; }
-    public void setISBN(String ISBN) { this.ISBN = ISBN; }
+    @DynamoDBAttribute(attributeName="Director")
+    public String getISBN() { return Director; }
+    public void setISBN(String Director) { this.Director = Director; }
 
-    @DynamoDBAttribute(attributeName="Authors")
-    public Set<String> getBookAuthors() { return bookAuthors; }
-    public void setBookAuthors(Set<String> bookAuthors) { this.bookAuthors = bookAuthors; }
+    @DynamoDBAttribute(attributeName="Actors")
+    public Set<String> getBookAuthors() { return Actors; }
+    public void setBookAuthors(Set<String> Actors) { this.Actors = Actors; }
     
-    @DynamoDBIgnore
-    public String getSomeProp() { return someProp; }
-    public void setSomeProp(String someProp) { this.someProp = someProp; }
+    @DynamoDBAttribite(attributeName="releaseDate")
+    public String getSomeProp() { return releaseDate; }
+    public void setSomeProp(String someProp) { this.releasaeDAte = releaseDate; }
 }
