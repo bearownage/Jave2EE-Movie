@@ -41,16 +41,41 @@ public class CartServlet extends HttpServlet {
 			case "/add":
 				addTotal(request, response);
 				break;
+			case "/search":
+				showQueryPage(request, response);
+				break;
 		}
 			
 	}
 	
 	private void showCartPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String query = request.getParameter("q");
+		System.out.println("Query: " + query);
+		List<Item> listItem;
+		if ( query != null ) {
+			if ( !query.equals("") ) {
+				listItem = cartDao.selectQueryItems(query);
+			} else {
+				listItem = cartDao.selectAllItems();
+			}
+		} else {
+			listItem = cartDao.selectAllItems();
+		}
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("cart.jsp");
-		List<Item> listItem = cartDao.selectAllItems();
 		request.setAttribute("listItem", listItem);
 		dispatcher.forward(request, response);
 	}
+	
+	private void showQueryPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String query = request.getParameter("q");
+		List<Item> listItem= cartDao.selectQueryItems(query);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("cart.jsp");
+		request.setAttribute("listItem", listItem);
+		dispatcher.forward(request, response);
+	}
+	
+	
 	
 	private void addTotal(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("cart.jsp");

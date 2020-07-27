@@ -11,17 +11,38 @@
         <body>
 
             <header>
-                <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #e3f2fd;">
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark">
                     <div>
                         <a class="navbar-brand"> Cart App </a>
                     </div>
 
-                    <ul class="navbar-nav">
-                        <li><a href="<%=request.getContextPath()%>/cart" class="nav-link">Users</a></li>
+                    <ul class="navbar-nav ">
+                        <li><a href="<%=request.getContextPath()%>/cart" class="nav-link">Display All Listings</a></li>
                     </ul>
                 </nav>
             </header>
             <br>
+            
+            <div class="row">
+            	<div class="col=md-4 offset-md-1">
+            		<h3>Search Area</h3>
+            	</div>
+            	<div class="col-md-4 offset-md-2">
+            		<form class="form-inline" method="get" action="">
+            		 <div class="input-group-prepend">
+    					<span class="input-group-text" id="basic-addon1">?</span>
+  					</div>
+						<input type="text" class="form-control" name = "q" placeholder="Search for a particular item">
+						  <div class="input-group-append">
+						  	 <input type ="submit" class ="btn btn-primary" value = "Search">
+						  </div>
+							
+					</form>
+            	</div>
+            	
+			  
+			</div>
+			  
 
             <div class="row">
                 <!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
