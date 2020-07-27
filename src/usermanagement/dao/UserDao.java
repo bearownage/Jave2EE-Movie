@@ -16,9 +16,7 @@ import usermanagement.model.User;
 // This DAO class provides CRUD database operations for the table users in the database.
 public class UserDao {
 	
-	private static String jdbcURL = "jdbc:mysql://localhost:3306/demo";
-    private static String jdbcUsername = "root";
-    private static String jdbcPassword = "";
+
     
     private static final String INSERT_USERS_SQL = "INSERT INTO USERS" + " (name, email, country) VALUES " + " (?, ?, ?)";
     
@@ -27,24 +25,10 @@ public class UserDao {
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?,country =? where id =?;";
     
-    public static Connection getConnection() {
-        Connection connection = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return connection;
-    }
-    
+
     // Create or insert user
     public void insertUser(User user) throws SQLException {
-    	try(Connection connection = getConnection();
+    	try(Connection connection = UtilDao.getConnection();
     		PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
     		// Providing values for placeholders
     		preparedStatement.setString(1, user.getName());
@@ -59,7 +43,7 @@ public class UserDao {
     // update user
     public boolean updateUser(User user) throws SQLException {
     	boolean rowUpdated = false;
-    	try(Connection connection = getConnection();
+    	try(Connection connection = UtilDao.getConnection();
         		PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USERS_SQL)) {
         		// Providing values for placeholders
     			preparedStatement.setString(1, user.getName());
@@ -79,7 +63,7 @@ public class UserDao {
     public User selectUser(int id) {
     	User user = null;
     	//Establish connection
-    	try (Connection connection = getConnection();
+    	try (Connection connection = UtilDao.getConnection();
     			//Create a statement using connection object
     			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID)) {
     		preparedStatement.setInt(1, id);
@@ -106,7 +90,7 @@ public class UserDao {
     public List<User> selectAllUsers() {
     	List<User> users = new ArrayList<>();
     	//Establish connection
-    	try (Connection connection = getConnection();
+    	try (Connection connection = UtilDao.getConnection();
     			//Create a statement using connection object
     			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS)) {
     		System.out.println(preparedStatement);
@@ -133,7 +117,7 @@ public class UserDao {
     // delete user
     public boolean deleteUser(int id) throws SQLException {
     	boolean rowDeleted;
-    	try(Connection connection = getConnection(); 
+    	try(Connection connection = UtilDao.getConnection(); 
     			PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USERS_SQL)) {
     		preparedStatement.setInt(1, id);
     		rowDeleted = preparedStatement.executeUpdate() > 0;

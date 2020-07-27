@@ -1,6 +1,6 @@
-package amazondb;
 
-package com.amazonaws.codesamples;
+/*
+package amazondb;
 
 import java.util.Set;
 
@@ -34,7 +34,8 @@ public class Film {
     public Set<String> getBookAuthors() { return Actors; }
     public void setBookAuthors(Set<String> Actors) { this.Actors = Actors; }
     
-    @DynamoDBAttribite(attributeName="releaseDate")
+    @DynamoDBAttribute(attributeName="releaseDate")
     public String getSomeProp() { return releaseDate; }
-    public void setSomeProp(String someProp) { this.releasaeDAte = releaseDate; }
+    public void setSomeProp(String releaseDate) { this.releaseDate = releaseDate; }
 }
+*/
