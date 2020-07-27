@@ -52,12 +52,12 @@
                                         <c:out value="${item.name}" />
                                     </td>
                                     <td>
-                                        <img src= <c:out value = "${item.image}"/> > 
+                                        <img height="200px" width="200px" src=<c:out value = "${item.image}"/> > 
                                     </td>
                                     <td>
                                         <c:out value="${item.price}" />
                                     </td>
-                                    <td><a href="edit?id=<c:out value='${item.price}' />">Add to Card</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=<c:out value='${user.id}' />">Delete</a></td>
+                                    <td><a class="btn btn-success" href="add?id=<c:out value='${item.price}'/>">Add to Cart</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="btn btn-danger" href="delete?id=<c:out value='${item.price}' />">Delete From Cart</a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
@@ -65,7 +65,7 @@
                     </table>
                 </div>
                     <div class="container text-left">
-                    	<a href="<%=request.getContextPath()%>/cart" class="btn btn-success">Go To Checkout</a>
+                    	<a href="<%=request.getContextPath()%>/cart" class="btn btn-primary">Go To Checkout</a>
                     </div>
             </div>
         </body>
