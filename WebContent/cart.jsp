@@ -6,6 +6,7 @@
         <head>
             <title>Cart Application</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> !-->
         </head>
 
         <body>
@@ -30,7 +31,7 @@
             	<div class="col-md-4 offset-md-2">
             		<form class="form-inline" method="get" action="">
             		 <div class="input-group-prepend">
-    					<span class="input-group-text" id="basic-addon1">?</span>
+    					<span class="input-group-text" id="basic-addon1?">Search here:</span>
   					</div>
 						<input type="text" class="form-control" name = "q" placeholder="Search for a particular item">
 						  <div class="input-group-append">
@@ -78,7 +79,11 @@
                                     <td>
                                         <c:out value="${item.price}" />
                                     </td>
-                                    <td><a class="btn btn-success" href="add?id=<c:out value='${item.price}'/>">Add to Cart</a> &nbsp;&nbsp;&nbsp;&nbsp; <a class="btn btn-danger" href="delete?id=<c:out value='${item.price}' />">Delete From Cart</a></td>
+                                    <td>
+                                    <form action = "<%=request.getContextPath()%>/cart" method="post">
+                                    	<input class="btn btn-success" type = "submit" name="<c:out value='${item.id}'/>" value = "Add to cart" />
+                                    </form>
+                                    	 <!-- &nbsp;&nbsp;&nbsp;&nbsp; --> <a class="btn btn-danger" href="delete?id=<c:out value='${item.price}' />">Delete From Cart</a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
@@ -86,6 +91,9 @@
                     </table>
                 </div>
                     <div class="container text-left">
+                    	<a href="#" class="btn btn-info btn-lg">
+          					<span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
+        				</a>
                     	<a href="<%=request.getContextPath()%>/cart" class="btn btn-primary">Go To Checkout</a>
                     </div>
             </div>

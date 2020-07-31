@@ -18,7 +18,7 @@ import usermanagement.model.User;
  * Servlet implementation class UserServlet
  * Allows client side services to access backend Java methods
  */
-@WebServlet("/")
+@WebServlet("/users")
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserDao userDao;

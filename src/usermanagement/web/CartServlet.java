@@ -20,7 +20,7 @@ import usermanagement.model.User;
  * Servlet implementation class UserServlet
  * Allows client side services to access backend Java methods
  */
-@WebServlet("/cart")
+@WebServlet("/")
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CartDao cartDao;
@@ -50,7 +50,9 @@ public class CartServlet extends HttpServlet {
 	
 	private void showCartPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String query = request.getParameter("q");
+		String add = request.getParameter("id");
 		System.out.println("Query: " + query);
+		System.out.println("Id: "+add );
 		List<Item> listItem;
 		if ( query != null ) {
 			if ( !query.equals("") ) {
