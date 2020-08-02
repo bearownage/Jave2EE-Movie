@@ -32,6 +32,18 @@ public class CartServlet extends HttpServlet {
     	this.cartDao = new CartDao();
     }
     
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getServletPath();
+		switch (action) {
+    		case "/cart":
+    			addToCart(request, response);
+    			break;
+		}
+    		
+    
+    }
+    
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getServletPath();
 		switch(action) {
@@ -86,6 +98,16 @@ public class CartServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	
-	
+	private void addToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("cart.jsp");
+		System.out.println(request);
+		String query = request.getParameter("id");
+		int id = Integer.valueOf(query);
+		cartDao.addItemToCart(id);
+		
+		List<Item> listItem = cartDao.selectAllItems();
+		request.setAttribute("listItem", listItem);
+		dispatcher.forward(request, response);
+	}
 
 }

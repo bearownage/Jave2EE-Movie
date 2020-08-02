@@ -81,9 +81,10 @@
                                     </td>
                                     <td>
                                     <form action = "<%=request.getContextPath()%>/cart" method="post">
-                                    	<input class="btn btn-success" type = "submit" name="<c:out value='${item.id}'/>" value = "Add to cart" />
+                                    	<input class="btn btn-success" type = "submit" name="add" value = "Add to cart" />
+                                    	<input type = "hidden" name = "id" value="<c:out value='${item.id}'/>" />
                                     </form>
-                                    	 <!-- &nbsp;&nbsp;&nbsp;&nbsp; --> <a class="btn btn-danger" href="delete?id=<c:out value='${item.price}' />">Delete From Cart</a></td>
+                                    	 <!-- &nbsp;&nbsp;&nbsp;&nbsp; <c:out value='${item.id}'/> --> <a class="btn btn-danger" href="delete?id=<c:out value='${item.price}' />">Delete From Cart</a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
