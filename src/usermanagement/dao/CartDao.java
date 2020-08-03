@@ -50,6 +50,10 @@ public class CartDao {
     	return items;
     }
 	
+	public List<Item> getCheckoutItems() {
+		return this.checkOutItems;
+	}
+	
     public List<Item> selectAllItems() {
     	List<Item> items = new ArrayList<>();
     	//Establish connection

@@ -56,9 +56,14 @@ public class CartServlet extends HttpServlet {
 			case "/search":
 				showQueryPage(request, response);
 				break;
+			case"/checkout":
+				showCheckoutPage(request, response);
+				break;
 		}
 			
 	}
+	
+
 	
 	private void showCartPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String query = request.getParameter("q");
@@ -78,6 +83,15 @@ public class CartServlet extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("cart.jsp");
 		request.setAttribute("listItem", listItem);
+		dispatcher.forward(request, response);
+	}
+	
+	private void showCheckoutPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Show checkout page");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("checkout.jsp");
+		List<Item> checkOutItem = cartDao.getCheckoutItems();
+		System.out.println(checkOutItem.size());
+		request.setAttribute("checkOutItem", checkOutItem);
 		dispatcher.forward(request, response);
 	}
 	

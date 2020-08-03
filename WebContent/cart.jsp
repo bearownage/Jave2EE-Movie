@@ -81,7 +81,7 @@
                                     </td>
                                     <td>
                                     <form action = "<%=request.getContextPath()%>/cart" method="post">
-                                    	<input class="btn btn-success" type = "submit" name="add" value = "Add to cart" />
+                                    	<input class="btn btn-success" type = "submit" value = "Add to cart" />
                                     	<input type = "hidden" name = "id" value="<c:out value='${item.id}'/>" />
                                     </form>
                                     	 <!-- &nbsp;&nbsp;&nbsp;&nbsp; <c:out value='${item.id}'/> --> <a class="btn btn-danger" href="delete?id=<c:out value='${item.price}' />">Delete From Cart</a></td>
@@ -92,10 +92,10 @@
                     </table>
                 </div>
                     <div class="container text-left">
-                    	<a href="#" class="btn btn-info btn-lg">
+                    	<!-- <a href="#" class="btn btn-info btn-lg">
           					<span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
-        				</a>
-                    	<a href="<%=request.getContextPath()%>/cart" class="btn btn-primary">Go To Checkout</a>
+        				</a> -->
+                    	<a href="<%=request.getContextPath()%>/checkout" class="btn btn-primary">Go To Checkout</a>
                     </div>
             </div>
         </body>
