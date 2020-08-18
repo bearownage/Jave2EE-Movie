@@ -1,6 +1,7 @@
 package usermanagement.web;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -15,6 +16,9 @@ import usermanagement.dao.CartDao;
 import usermanagement.dao.UserDao;
 import usermanagement.model.Item;
 import usermanagement.model.User;
+
+import java.util.concurrent.ExecutorService; 
+import java.util.concurrent.Executor;
 
 /**
  * Servlet implementation class UserServlet
