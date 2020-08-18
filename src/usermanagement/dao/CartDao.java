@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import usermanagement.model.Item;
@@ -18,7 +19,7 @@ public class CartDao {
 	
 	private final static String ADD_QUERY_ITEM_TO_CART = "SELECT * FROM tbl_product WHERE id = ?";
 	
-	private List<Item> checkOutItems = new ArrayList<>();
+	private List<Item> checkOutItems = Collections.synchronizedList(new ArrayList<Item>());
 
     // select users
 	public List<Item> selectQueryItems(String query) {

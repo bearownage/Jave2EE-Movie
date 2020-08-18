@@ -8,7 +8,7 @@ public class UtilDao {
 
 	private static String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
     private static String jdbcUsername = "root";
-    private static String jdbcPassword = "";
+    private static String jdbcPassword = "MySql123!";
 
     public static Connection getConnection() {
         Connection connection = null;
