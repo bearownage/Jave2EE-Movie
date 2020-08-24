@@ -9,3 +9,13 @@ Install Tomcat 8.5 on eclipse
 Run on server
 
 Will be viewable on localhost:8090/cart
+
+# OR
+
+In the root directory, run
+'''
+./gradlew appRun
+'''
+
+The application will then be run on localhost:8080
+
