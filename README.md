@@ -12,7 +12,7 @@ Will be viewable on localhost:8090/cart
 
 # OR
 
-In the root directory, run
+In the root directory, run the below command if you have gradle installed on your system.
 
 ```
 ./gradlew appRun
