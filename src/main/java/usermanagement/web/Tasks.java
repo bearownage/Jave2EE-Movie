@@ -9,9 +9,10 @@ import java.util.concurrent.Executor;
 
 public class Tasks implements Runnable {
 
-		public void run(HttpServletRequest request, HttpServletResponse response) {
+
+		@Override
+		public void run() {
 			// TODO Auto-generated method stub
-			doGet(request, response)
 			
 		}
 	

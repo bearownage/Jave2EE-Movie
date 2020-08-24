@@ -17,9 +17,6 @@ import usermanagement.dao.UserDao;
 import usermanagement.model.Item;
 import usermanagement.model.User;
 
-import java.util.concurrent.ExecutorService; 
-import java.util.concurrent.Executor;
-
 /**
  * Servlet implementation class UserServlet
  * Allows client side services to access backend Java methods
