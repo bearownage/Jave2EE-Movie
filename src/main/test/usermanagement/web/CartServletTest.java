@@ -18,10 +18,14 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class CartServletTest {
-	@Mock private HttpServletRequest request;
+    @Mock private HttpServletRequest request;
     @Mock private HttpServletResponse response;
     @Mock private RequestDispatcher requestDispatcher;
-
+	
+    @InjectMock 
+    private CartServlet cartServlet;
+	
+    // Initialize all the Mocked objects before the tests starts.
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
