@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertEquals;
-
+/*
 public class CartServletFunctionalTest {
     private WebDriver driver;
 
@@ -37,9 +37,11 @@ public class CartServletFunctionalTest {
 
         driver.findElement(By.id("search bar")).sendKeys("Rush");
         //driver.findElement(By.id("say-hello-button")).click();
-
+        
+        
         //assertEquals("Hello Page", driver.getTitle());
         //assertEquals("Hello, Dolly!", driver.findElement(By.tagName("h2")).getText());
     }
     
 }
+*/
