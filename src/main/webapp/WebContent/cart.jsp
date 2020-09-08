@@ -33,7 +33,7 @@
             		 <div class="input-group-prepend">
     					<span class="input-group-text" id="basic-addon1?">Search here:</span>
   					</div>
-						<input type="text" class="form-control" name = "q" placeholder="Search for a particular item">
+						<input type="text" class="form-control" id = "search bar" name = "q" placeholder="Search for a particular item">
 						  <div class="input-group-append">
 						  	 <input type ="submit" class ="btn btn-primary" value = "Search">
 						  </div>
