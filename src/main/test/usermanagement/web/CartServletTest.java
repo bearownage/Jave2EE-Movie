@@ -1,10 +1,6 @@
 package usermanagement.web;
 
 
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 import usermanagement.web.CartServlet;
 
@@ -16,12 +12,27 @@ import java.io.StringWriter;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
+<<<<<<< HEAD
 /*
+=======
+
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+
+>>>>>>> 8883ee59e14d289c36b21fed72e85ea6eef82b93
 public class CartServletTest {
-	@Mock private HttpServletRequest request;
+    @Mock private HttpServletRequest request;
     @Mock private HttpServletResponse response;
     @Mock private RequestDispatcher requestDispatcher;
-
+	
+    @InjectMock 
+    private CartServlet cartServlet;
+	
+    // Initialize all the Mocked objects before the tests starts.
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
