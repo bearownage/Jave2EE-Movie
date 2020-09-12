@@ -18,5 +18,5 @@ In the root directory, run the below command if you have gradle installed on you
 ./gradlew appRun
 ```
 
-The application will then be run on localhost:8080
+The application will then be run on localhost:8080/todo/cart
 
