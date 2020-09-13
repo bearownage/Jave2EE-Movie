@@ -65,7 +65,7 @@
                         <tbody>
                             <!--   for (Todo todo: todos) {  -->
                             <c:forEach var="item" items="${listItem}">
-	                            <div class="card" style="width: 18rem;">
+	                            <div class="card" style="width: 17rem;">
 								  <img src=<c:out value = "${item.image}"/> class="card-img-top" alt="...">
 								  <div class="card-body">
 								    <h5 class="card-title"><c:out value="${item.name}"/></h5>
